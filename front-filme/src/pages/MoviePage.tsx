@@ -8,7 +8,6 @@ type Filme = {
   amount: number;
   describe: string;
   time_minutes: number;
-  vote_average: number;
 };
 
 const MoviePage = () => {
@@ -31,7 +30,7 @@ const MoviePage = () => {
   }, []);
 
   return (
-    <div>
+    <div className='MovieDetail'>
       <MovieDetails movies={filmes} />
     </div>
   );

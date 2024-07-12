@@ -1,4 +1,5 @@
 import MovieCard from './MovieCard';
+import "./MovieList.css"
 
 type Movie = {
   id: number;

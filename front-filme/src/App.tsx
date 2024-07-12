@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import MoviePage from './pages/MoviePage';
+import "./App.css"
+import "./index.css"
 
 const App = () => {
   return (

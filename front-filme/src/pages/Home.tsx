@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import MovieList from '../components/MovieList';
+import "./Home.css"
 
 type Filme = {
   id: number;
@@ -8,7 +9,6 @@ type Filme = {
   amount: number;
   describe: string;
   time_minutes: number;
-  vote_average: number;
 };
 
 const Home = () => {
@@ -23,7 +23,7 @@ const Home = () => {
         return response.json();
       })
       .then(data => {
-        setFilmes(data); // Atualiza o estado filmes com os dados recebidos da API
+        setFilmes(data);
       })
       .catch(error => {
         console.error('Erro ao buscar filmes:', error);
@@ -31,7 +31,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className='movies-container'>
       <MovieList movies={filmes} />
     </div>
   );

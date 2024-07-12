@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { FaStar } from 'react-icons/fa';
+
+import "./MovieCard.css"
 
 type MovieCardProps = {
   movie: {
@@ -16,9 +17,6 @@ const MovieCard = ({ movie }: MovieCardProps) => {
       <Link to={`/movie/${movie.id}`}>
         <img src={movie.imageURL} alt={movie.title} />
         <h2>{movie.title}</h2>
-        <p>
-          <FaStar /> {movie.vote_average}
-        </p>
       </Link>
     </div>
   );

@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
-import { FaStar } from 'react-icons/fa';
+import "./MovieDetails.css"
+
 
 type Movie = {
   id: number;
@@ -8,7 +9,6 @@ type Movie = {
   amount: number;
   describe: string;
   time_minutes: number;
-  vote_average: number;
 };
 
 const MovieDetails = ({ movies }: { movies: Movie[] }) => {
@@ -21,14 +21,14 @@ const MovieDetails = ({ movies }: { movies: Movie[] }) => {
 
   return (
     <div className="movie-details">
+     <div className='info'>
       <h1>{movie.title}</h1>
       <img src={movie.imageURL} alt={movie.title} />
       <p>{movie.describe}</p>
       <p>Tempo: {movie.time_minutes} minutos</p>
-      <p>Quantidade: {movie.amount}</p>
-      <p>
-        <FaStar /> {movie.vote_average}
-      </p>
+      <p>Orçamento: {movie.amount}</p>
+     </div>
+      
     </div>
   );
 };
