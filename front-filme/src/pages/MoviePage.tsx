@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import MovieDetails from '../components/MovieDetails';
+import { useParams } from 'react-router-dom';
+import "../components/MovieDetails.css";
 
 type Filme = {
   id: number;
@@ -8,32 +9,50 @@ type Filme = {
   amount: number;
   describe: string;
   time_minutes: number;
+  vote_average: number;
 };
 
-const MoviePage = () => {
-  const [filmes, setFilmes] = useState<Filme[]>([]);
+const MovieDetails = () => {
+  const { id } = useParams<{ id: string }>();
+  const [movie, setMovie] = useState<Filme | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("http://localhost:3333/filme")
+    fetch(`http://localhost:3333/filme/${id}`)
       .then(response => {
         if (!response.ok) {
-          throw new Error('Erro ao buscar filmes');
+          throw new Error('Erro ao buscar o filme');
         }
         return response.json();
       })
       .then(data => {
-        setFilmes(data); // Atualiza o estado filmes com os dados recebidos da API
+        setMovie(data);
       })
       .catch(error => {
-        console.error('Erro ao buscar filmes:', error);
+        setError('Erro ao buscar o filme: ' + error.message);
       });
-  }, []);
+  }, [id]);
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (!movie) {
+    return <div>Carregando...</div>;
+  }
 
   return (
-    <div className='MovieDetail'>
-      <MovieDetails movies={filmes} />
+    <div className="movie-details">
+      <div className='info'>
+        <h1>{movie.title}</h1>
+        <img src={movie.imageURL} alt={movie.title} />
+        <p>{movie.describe}</p>
+        <p>Tempo: {movie.time_minutes} minutos</p>
+        <p>Orçamento: {movie.amount}</p>
+        <p>Avaliação: {movie.vote_average}</p>
+      </div>
     </div>
   );
 };
 
-export default MoviePage;
+export default MovieDetails;
