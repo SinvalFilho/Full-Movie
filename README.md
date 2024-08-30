@@ -405,6 +405,8 @@ code .
 
 ```powershell
 npm install
+npm audit
+npm audit fix
 npm install react react-dom
 npm install react-icons
 
