@@ -9,7 +9,6 @@ type Filme = {
   amount: number;
   describe: string;
   time_minutes: number;
-  vote_average: number;
 };
 
 const MovieDetails = () => {
@@ -47,9 +46,8 @@ const MovieDetails = () => {
         <h1>{movie.title}</h1>
         <img src={movie.imageURL} alt={movie.title} />
         <p>{movie.describe}</p>
-        <p>Tempo: {movie.time_minutes} minutos</p>
-        <p>Orçamento: {movie.amount}</p>
-        <p>Avaliação: {movie.vote_average}</p>
+        <p>Tempo: {movie.time_minutes} Minutos</p>
+        <p>Orçamento: {movie.amount} Milhões</p>
       </div>
     </div>
   );

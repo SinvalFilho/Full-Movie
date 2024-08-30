@@ -9,7 +9,6 @@ type Filme = {
   amount: number;
   describe: string;
   time_minutes: number;
-  vote_average: number;
 };
 
 const MovieDetails = () => {
@@ -49,7 +48,6 @@ const MovieDetails = () => {
         <p>{movie.describe}</p>
         <p>Tempo: {movie.time_minutes} minutos</p>
         <p>Orçamento: {movie.amount}</p>
-        <p>Avaliação: {movie.vote_average}</p> {/* Exibindo a nova propriedade */}
       </div>
     </div>
   );

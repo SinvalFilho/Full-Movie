@@ -7,7 +7,6 @@ type MovieCardProps = {
     id: number;
     title: string;
     imageURL: string;
-    vote_average: number;
   };
 };
 

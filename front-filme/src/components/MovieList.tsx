@@ -5,7 +5,6 @@ type Movie = {
   id: number;
   title: string;
   imageURL: string;
-  vote_average: number;
 }[];
 
 type MovieListProps = {

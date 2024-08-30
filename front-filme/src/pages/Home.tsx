@@ -9,7 +9,6 @@ type Filme = {
   amount: number;
   describe: string;
   time_minutes: number;
-  vote_average: number;
 };
 
 const Home = () => {
